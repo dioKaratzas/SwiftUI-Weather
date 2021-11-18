@@ -1,0 +1,25 @@
+{
+	"areaName": [
+		{
+			"wrongKey": "Athens"
+		}
+	],
+	"country": [
+		{
+			"value": "Greece"
+		}
+	],
+	"region": [
+		{
+			"value": "Attica"
+		}
+	],
+	"latitude": "37.980",
+	"longitude": "23.716",
+	"population": "729137",
+	"weatherUrl": [
+		{
+			"value": "https://www.worldweatheronline.com/v2/weather.aspx?q=37.9795,23.7162"
+		}
+	]
+}

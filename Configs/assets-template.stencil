@@ -1,0 +1,97 @@
+/*
+ MIT License
+
+ Copyright (c) 2021 Dionysios Karatzas
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+ */
+
+// swiftlint:disable all
+// Generated using SwiftGen, by O.Halligon — https://github.com/SwiftGen/SwiftGen
+// Warning: Do not edit that file. It will be overwritten by SwiftGen
+{# tv-template.stencil #}
+{# Resources #}
+{% if catalogs %}
+{% set accessModifier %}{% if param.publicAccess %}public{% else %}internal{% endif %}{% endset %}
+{% set prefix %}{{param.varPrefix|default:""}}{% endset %}
+import SwiftUI
+{% macro propertieBlock asset sp group %}
+{% if asset.type == "color" %}
+	{% if group %}
+{{sp}}public static let {{group|swiftIdentifier:"pretty"|lowerFirstLetter|escapeReservedKeywords}}{{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} = Color("{{asset.value}}")
+	{% else %}
+{{sp}}public static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstLetter|escapeReservedKeywords}} = Color("{{asset.value}}")
+	{% endif %}
+{{sp}}
+{% elif asset.type == "image" %}
+	{% if group %}
+{{sp}}public static let {{group|swiftIdentifier:"pretty"|lowerFirstLetter|escapeReservedKeywords}}{{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} = Image("{{asset.value}}")
+	{% else %}
+{{sp}}public static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstLetter|escapeReservedKeywords}} = Image("{{asset.value}}")
+	{% endif %}
+{{sp}}
+{% endif %}
+{% endmacro %}
+{% macro nestedFolders asset sp type %}
+{% if asset.items %}
+	{% for item in asset.items %}
+		{% if item.type == type %}
+			{% if asset.isNamespaced == "false" %}
+				{% call propertieBlock item sp "" %}
+			{% else %}
+				{% call propertieBlock item sp asset.name %}
+			{% endif %}
+		{% elif asset.items %}
+			{% call nestedFolders item sp type %}
+		{% endif %}
+	{% endfor %}
+{% endif %}
+{% endmacro %}
+
+{{accessModifier}} enum WeatherColor {
+{% set sp %}	{% endset %}
+{% for catalog in catalogs %}
+	{% for asset in catalog.assets %}
+		{% if asset.type == "color" %}
+			{% call propertieBlock asset sp "	" %}
+		{% else %}
+			{% call nestedFolders asset sp "color" %}
+		{% endif %}
+	{% endfor %}
+{% endfor %}
+}
+
+{{accessModifier}} enum WeatherImage {
+{% set sp %}	{% endset %}
+{% for catalog in catalogs %}
+	{% for asset in catalog.assets %}
+		{% if asset.type == "image" %}
+			{% call propertieBlock asset sp "	" %}
+		{% else %}
+			{% call nestedFolders asset sp "image" %}
+		{% endif %}
+	{% endfor %}
+{% endfor %}
+}
+
+private final class BundleToken {}
+{% else %}
+// no catalogs found
+{% endif %}
+// swiftlint:enable all

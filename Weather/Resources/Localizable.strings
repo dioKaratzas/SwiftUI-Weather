@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Weather
+
+  Created by Dio on 16/11/21.
+  
+*/
+
+"search_location_placeholder" = "Search for a location";
+"weather_title" = "Weather";
+"done" = "Done";
+"feels_like" = "Feels like %@";
+"cancel" = "Cancel";
+"add" = "Add";
+"no_search_results" = "No Results";

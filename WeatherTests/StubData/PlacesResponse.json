@@ -1,0 +1,106 @@
+{
+	"search_api": {
+		"result": [
+			{
+				"areaName": [
+					{
+						"value": "Athens"
+					}
+				],
+				"country": [
+					{
+						"value": "Greece"
+					}
+				],
+				"region": [
+					{
+						"value": "Attica"
+					}
+				],
+				"latitude": "37.980",
+				"longitude": "23.716",
+				"population": "729137",
+				"weatherUrl": [
+					{
+						"value": "https://www.worldweatheronline.com/v2/weather.aspx?q=37.9795,23.7162"
+					}
+				]
+			},
+			{
+				"areaName": [
+					{
+						"value": "Athens"
+					}
+				],
+				"country": [
+					{
+						"value": "United States of America"
+					}
+				],
+				"region": [
+					{
+						"value": "Ohio"
+					}
+				],
+				"latitude": "39.329",
+				"longitude": "-82.101",
+				"population": "23180",
+				"weatherUrl": [
+					{
+						"value": "https://www.worldweatheronline.com/v2/weather.aspx?q=39.3292,-82.1014"
+					}
+				]
+			},
+			{
+				"areaName": [
+					{
+						"value": "Athens"
+					}
+				],
+				"country": [
+					{
+						"value": "United States of America"
+					}
+				],
+				"region": [
+					{
+						"value": "Tennessee"
+					}
+				],
+				"latitude": "35.443",
+				"longitude": "-84.593",
+				"population": "13900",
+				"weatherUrl": [
+					{
+						"value": "https://www.worldweatheronline.com/v2/weather.aspx?q=35.4428,-84.5931"
+					}
+				]
+			},
+			{
+				"areaName": [
+					{
+						"value": "Athens"
+					}
+				],
+				"country": [
+					{
+						"value": "United States of America"
+					}
+				],
+				"region": [
+					{
+						"value": "Texas"
+					}
+				],
+				"latitude": "32.205",
+				"longitude": "-95.855",
+				"population": "12387",
+				"weatherUrl": [
+					{
+						"value": "https://www.worldweatheronline.com/v2/weather.aspx?q=32.2047,-95.8553"
+					}
+				]
+			}
+		]
+	}
+}
